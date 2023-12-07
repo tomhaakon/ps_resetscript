@@ -1,0 +1,5 @@
+#!/bin/bash
+docker exec -ti prestashop /bin/bash -c "php bin/console prestashop:module uninstall $1" 
+docker exec -ti prestashop /bin/bash -c "php bin/console prestashop:module install $1"
+docker exec -ti prestashop /bin/bash -c "php bin/console cache:clear"
+docker exec -ti prestashop /bin/bash -c "chown -R www-data:www-data var"
